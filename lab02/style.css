@@ -1,0 +1,91 @@
+.large-circle {
+    border-radius: 50%;
+    background-color: #919186;
+    height: 200px;
+    width: 200px;
+}
+.l-pos {
+    position: relative;
+}
+
+.medium-circle {
+    height: 80px;
+    width: 80px;
+    background-color: white;
+    border-radius: 50%;
+}
+.m-pos {
+    position: absolute;
+    bottom: 60px;
+    left: 60px;
+}
+.m-trans {
+    transform: translate(60px, 60px);
+}
+
+.small-circle {
+    height: 50px;
+    width: 50px;
+    background-color: white;
+    border-radius: 50%;
+
+}
+.sm-pos {
+    position: absolute;
+}
+
+.twohour-pos {
+    bottom: 150px; 
+    left: 150px;
+}
+.threehour-pos {
+    bottom: 75px; 
+    left: 175px;
+}
+.fivehour-pos {
+    left: 150px; 
+    bottom: 0px;
+}
+.sixhour-pos {
+    bottom: -25px; 
+    left: 75px;
+}
+.eighthour-pos {
+    bottom: 0px;
+}
+.ninehour-pos {
+    bottom: 75px; 
+    left: -25px;
+}
+.elevenhour-pos {
+    bottom: 150px;
+}
+.twelvehour-pos {
+    bottom: 175px; 
+    left: 75px;
+}
+
+.twohour-trans {
+    transform: translate(150px, -380px);
+}
+.threehour-trans {
+    transform: translate(175px, -155px);
+}
+.fivehour-trans {
+    transform: translate(150px, -280px);
+}
+.sixhour-trans {
+    transform: translate(75px, 45px);
+}
+.eighthour-trans {
+    transform: translate(0px, -180px);
+}
+.ninehour-trans {
+    transform: translate(-25px, -105px);
+}
+.elevenhour-trans {
+    transform: translate(0px, -280px);
+}
+.twelvehour-trans {
+    transform: translate(75px, -105px);
+}
