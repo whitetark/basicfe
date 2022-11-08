@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="lab05 febasic">
+        <link rel="stylesheet" href="style.css">
+        <title>Чапча С.О. ІТ-04</title>
+    </head>
+    <body>
+        <div id = "task1">
+            <h2>Task 1. Form For Registration:</h2>
+            <div id = "main">
+                <form id = "formReg">
+                    ПІБ:<br>
+                    <input type='text' id='pib' placeholder="Шевченко Т.Г."><br>
+                    Група:<br>
+                    <input type='text' id='group' placeholder="ІТ-0Х"><br>
+                    Факультет:<br>
+                    <input type='text' id='faculty' placeholder="ФІОТ"><br>
+                    Aдреса:<br>
+                    <input type='text' id='adress' placeholder="м.Київ"><br>
+                    Telegram:<br>
+                    <input type='text' id='telegram' placeholder="@username"><br>
+                    <br>
+                    <button type="button" id="submit" onclick="submitInfo()">Submit</button>
+                </form>
+                <div id = "userInfo"></div>
+            </div>
+        </div>
+        <div id = "task2">
+            <h2>Task 2. Color Palette</h2>
+            <input type="color" id="palette" value="#ff0000">
+            <table id="table"></table>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>
