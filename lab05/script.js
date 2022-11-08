@@ -85,3 +85,60 @@ function checkForEmpty(info){
     });
     return status;
 }
+
+//Task 2
+createTable();
+
+let palette = document.getElementById("palette");
+function createTable(){
+    let table = document.getElementById('table');
+    for(let i = 0; i < 6; i++){
+        let row = document.createElement('tr');
+        for (let j = 0; j < 6; j++) {
+            let cell = document.createElement('td');
+            let value = j+1+i*6;
+            cell.innerHTML = value;
+            cell.id = value;
+            row.appendChild(cell);
+        }
+        table.appendChild(row);
+    }
+}
+
+let needCell = document.getElementById("15");
+needCell.onmouseover = function(){
+    needCell.style.background = getRandomColor();
+    needCell.style.color = getRandomColor();
+}
+
+needCell.onclick = function(){
+    needCell.style.background = palette.value;
+}
+
+needCell.ondblclick = function(){
+    let indexCell = parseInt(needCell.id);
+    let rowId = Math.ceil(indexCell/6);
+    let endIndexRow = parseInt(rowId) * 6;
+
+    let temp = indexCell
+    for(let i = 0; i < 2; i++){
+        if(temp < endIndexRow){
+            cellElement = temp.toString();
+            document.getElementById(cellElement).style.background = palette.value;
+            temp + 2;
+        } else {
+            temp -= 6
+            cellElement = temp.toString();
+            document.getElementById(cellElement).style.background = palette.value;
+        }
+    }
+}
+
+function getRandomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
