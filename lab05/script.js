@@ -7,11 +7,11 @@ let userTelegram = document.getElementById("telegram");
 
 const info = [userName, userGroup, userFaculty, userAdress, userTelegram];
 
-let userNameRegex = /[А-ЯІЇЄ][а-яіїє']{1,20}\s[А-ЯІЄ]\.\s[А-ЯІЄ]\./m;
-let userGroupRegex = /[А-ЯІЇЄ][А-ЯІЇЄ]\-[0-9][0-9]/m;
+let userNameRegex = /[а-яіїєА-ЯІЇЄ]+\s[А-ЯІЇЄ]\.[А-ЯІЇЄ]\./m;
+let userGroupRegex = /[А-ЯІЇЄ][А-ЯІЇЄ]-\d\d/m;
 let userFacultyRegex = /[А-ЯІЇЄ]{1,4}/m;
-let userAdressRegex = /^(?!(м\.))*[а-яґєіїА-ЯҐЄІЇ]+$/;
-let userTelegramRegex = /^(?!(@))*[а-яґєіїА-ЯҐЄІЇ]+$/;
+let userAdressRegex = /м\.[а-яіїєА-ЯІЇЄ]+/m;
+let userTelegramRegex = /@[a-zA-Z]+/m;
 
 let userInfoDiv = document.getElementById("userInfo");
 let userRegForm = document.getElementById("formReg")
@@ -19,58 +19,69 @@ let userRegForm = document.getElementById("formReg")
 function submitInfo(){
     let status = true;
 
-    info.forEach(element => {
-        element.style.background = '#000000';
-    });
+    if(!checkForEmpty(info)){
+        return alert("Заповніть усі колонки");
+    };
 
-    if (!userNameRegex.test(userName)){
+    if (userNameRegex.test(userName.value) == false){
         status = false;
-        userName.style.background = '#FF0000';
+        userName.style.borderBlockColor = '#FF0000';
     }
-    if (!userGroupRegex.test(userGroup)){
+    if (!userGroupRegex.test(userGroup.value)){
         status = false;
-        userGroup.style.background = '#FF0000';
+        userGroup.style.borderBlockColor = '#FF0000';
     }
-    if (!userFacultyRegex.test(userFaculty)){
+    if (!userFacultyRegex.test(userFaculty.value)){
         status = false;
-        userFaculty.style.background = '#FF0000';
+        userFaculty.style.borderBlockColor = '#FF0000';
     }
-    if (!userAdressRegex.test(userAdress)){
+    if (!userAdressRegex.test(userAdress.value)){
         status = false;
-        userAdress.style.background = '#FF0000';
+        userAdress.style.borderBlockColor = '#FF0000';
     }
-    if (!userTelegramRegex.test(userTelegram)){
+    if (!userTelegramRegex.test(userTelegram.value)){
         status = false;
-        userTelegram.style.background = '#FF0000';
+        userTelegram.style.borderBlockColor = '#FF0000';
     }
 
     if (status){
         showUserInfo(info);
     } else {
-        //alert("Некоректний формат даних");
+        alert("Некоректний формат даних");
     }
 
-    //userRegForm.reset();
+    userRegForm.reset();
 }
 
 function showUserInfo(info){
     userInfoDiv.innerHTML = "";
 
-    var p1 = document.createElement("p");
-    var p2 = document.createElement("p");
-    var p3 = document.createElement("p");
-    var p4 = document.createElement("p");
-    var p5 = document.createElement("p");
+    var p1 = document.createTextNode("ПІБ: " + info[0].value);
+    var p2 = document.createTextNode("Група: " + info[1].value);
+    var p3 = document.createTextNode("Факультет: " + info[2].value);
+    var p4 = document.createTextNode("Адреса: " + info[3].value);
+    var p5 = document.createTextNode("Телеграм: " + info[4].value);
 
-    p1.value = "ПІБ: " + info[1];
-    p2.value = "Група: " + info[2];
-    p3.value = "Факультет: " + info[3];
-    p4.value = "Адреса: " + info[4];
-    p5.value = "Телеграм: " + info[5];
+    userInfoDiv.className = "userInfo";
 
     userInfoDiv.appendChild(p1);
+    userInfoDiv.appendChild(document.createElement("br"));
     userInfoDiv.appendChild(p2);
+    userInfoDiv.appendChild(document.createElement("br"));
     userInfoDiv.appendChild(p3);
+    userInfoDiv.appendChild(document.createElement("br"));
     userInfoDiv.appendChild(p4);
+    userInfoDiv.appendChild(document.createElement("br"));
     userInfoDiv.appendChild(p5);
+    userInfoDiv.appendChild(document.createElement("br"));
+}
+
+function checkForEmpty(info){
+    let status = true;
+    info.forEach(element => {
+        if (!element.value){
+            status = false;
+        } 
+    });
+    return status;
 }

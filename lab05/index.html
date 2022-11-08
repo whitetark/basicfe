@@ -9,22 +9,23 @@
     </head>
     <body>
         <div id = "task1">
-            <form id = "formReg">
-                <h2><p>Form for registration: </p></h2>
-                ПІБ:<br>
-                <input type='text' id='pib' placeholder="Шевченко Т.Г."><br>
-                Група:<br>
-                <input type='text' id='group' placeholder="ІТ-0Х"><br>
-                Факультет:<br>
-                <input type='text' id='faculty' placeholder="ФІОТ"><br>
-                Aдреса:<br>
-                <input type='text' id='adress' placeholder="м.Київ"><br>
-                Telegram:<br>
-                <input type='text' id='telegram' placeholder="@username"><br>
-                <input type="submit" id="submit" onclick="submitInfo()">
-            </form>
-            <div id = "userInfo">
-    
+            <h2><p>Form for registration: </p></h2>
+            <div id = "main">
+                <form id = "formReg">
+                    ПІБ:<br>
+                    <input type='text' id='pib' placeholder="Шевченко Т.Г."><br>
+                    Група:<br>
+                    <input type='text' id='group' placeholder="ІТ-0Х"><br>
+                    Факультет:<br>
+                    <input type='text' id='faculty' placeholder="ФІОТ"><br>
+                    Aдреса:<br>
+                    <input type='text' id='adress' placeholder="м.Київ"><br>
+                    Telegram:<br>
+                    <input type='text' id='telegram' placeholder="@username"><br>
+                    <br>
+                    <button type="button" id="submit" onclick="submitInfo()">Submit</button>
+                </form>
+                <div id = "userInfo"></div>
             </div>
         </div>
         <script src="script.js"></script>
