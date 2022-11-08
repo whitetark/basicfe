@@ -119,16 +119,13 @@ needCell.ondblclick = function(){
     let indexCell = parseInt(needCell.id);
     let rowId = Math.ceil(indexCell/6);
     let endIndexRow = parseInt(rowId) * 6;
+    let startIndexRow = endIndexRow - 5;
 
-    let temp = indexCell
-    for(let i = 0; i < 2; i++){
-        if(temp < endIndexRow){
-            cellElement = temp.toString();
-            document.getElementById(cellElement).style.background = palette.value;
-            temp + 2;
-        } else {
-            temp -= 6
-            cellElement = temp.toString();
+    let temp = indexCell % 2;
+
+    for(i = startIndexRow; i <= endIndexRow; i++){
+        if(i%2==temp){
+            cellElement = i.toString();
             document.getElementById(cellElement).style.background = palette.value;
         }
     }
