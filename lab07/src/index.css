@@ -1,0 +1,36 @@
+body {
+  margin: 0;
+  font-family: 'Times New Roman', Times, serif;
+  padding: 8px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.App {
+  display: block;
+}
+
+.cardBlock {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 10px;
+}
+.cardBlock .card {
+  box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.75);
+  padding: 15px;
+  border-radius: 15px;
+  margin: 10px;
+  word-break: break-word;
+  width: auto;
+  transition: transform ease-in-out 150ms;
+}
+.cardblock .ard .cardImg {
+  width: 250px;
+  height: 250px;
+}
